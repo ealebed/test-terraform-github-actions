@@ -36,6 +36,6 @@ provider "google" {
   project = "ylebi-rnd"
 }
 
-# resource "google_compute_network" "vpc_network" {
-#   name = "terraform-network"
-# }
+resource "google_compute_network" "vpc_network" {
+  name = "terraform-network"
+}
