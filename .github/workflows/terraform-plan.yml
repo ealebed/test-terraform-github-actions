@@ -43,7 +43,7 @@
           uses: actions/checkout@v4
   
         - name: Upload Configuration
-          uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.3.1
+          uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.3.2
           id: plan-upload
           with:
             workspace: ${{ env.TF_WORKSPACE }}
@@ -51,7 +51,7 @@
             speculative: true
   
         - name: Create Plan Run
-          uses: hashicorp/tfc-workflows-github/actions/create-run@v1.3.1
+          uses: hashicorp/tfc-workflows-github/actions/create-run@v1.3.2
           id: plan-run
           ## run may fail, if so continue to output PR comment
           ## step.terraform-cloud-check-run-status will fail job after pr comment is created/updated.
@@ -65,7 +65,7 @@
             # message: "Triggered From GitHub Actions CI ${{ github.sha }}"
   
         - name: Get Plan Output
-          uses: hashicorp/tfc-workflows-github/actions/plan-output@v1.3.1
+          uses: hashicorp/tfc-workflows-github/actions/plan-output@v1.3.2
           id: plan-output
           with:
             plan: ${{ steps.plan-run.outputs.plan_id }}
